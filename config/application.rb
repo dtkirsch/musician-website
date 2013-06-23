@@ -12,6 +12,9 @@ end
 module MusicianWebsite
   class Application < Rails::Application
 
+    SITE_NAME = "Tara Tresner-Kirsch"
+    SITE_TAGLINE = "Pianist ~~~ Cellist ~~~ Organist"
+
     config.generators do |g|
       
       

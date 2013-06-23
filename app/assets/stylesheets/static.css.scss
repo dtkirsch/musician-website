@@ -1,0 +1,91 @@
+// Place all the styles related to the Static controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* from tara.html */
+
+      body { 
+        color: #ddd; /* #945 */
+
+        background-image: url(full-padded.png);
+/*        background-image: url(bust-padded.png);*/
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+      }
+
+
+      .navbar-inner-red-transparent a:hover{color: #fff !important}
+
+/*      .navbar-inverse {background-color: #22a} */
+
+      .content {   
+/*  It would be nice if this worked. The goal is: 1) small content hangs out near the bottom of the browser window, 2) medium content fills up to the top of the page, and 3) large content scrolls off the bottom of the browser window. Unfortunately, the attributes below only fulfill 1 and 2, and ugliness happens for 3.
+        position: absolute;
+        bottom: 50px;
+        margin-top: 100px; */
+      }
+
+      .keyboard-top {
+        background-image: url(keyboard-octave-horizontal.png), linear-gradient(to bottom, #512, #634);
+        background-repeat: repeat-x, repeat-x;
+        background-position: top, bottom;
+        padding-top: 50px;
+        padding-left: 10px;
+      }
+      .keyboard-left {
+        background-image: url(keyboard-octave-squashed.png), linear-gradient(to bottom, #512, #634);
+        background-repeat: repeat-y, repeat-x;
+        background-position: left, right;
+        padding-left: 60px;
+      }
+
+/*      .transparent { background: rgba(0,0,0,0.4) }*/
+      .transparent { opacity: 0.7 }
+      
+/* for two-line brand, and thus taller navbar */
+      .brand span {        font-size: 50%;      }
+      .brand {padding-bottom: 0px !important}
+      .container-fluid {margin-top: 50}
+      .navbar-inner ul{vertical-align: bottom}
+      .navbar-inner ul{position:absolute; top: 7}
+
+/* Keyboard left border on whole site
+      .main-container {margin-left: 48px;} 
+      .navbar {margin-left: 48px}
+      .keyboard {
+        background-image: url(keyboard-octave-squashed.png) !important;
+        position: fixed;
+        height: 100%;
+        width: 48px;
+        opacity: 0.5;
+      }
+*/
+
+/* from bootstrap stylesheet */
+
+.navbar-inverse .navbar-inner-red {
+  background-color: #1b1b1b;
+  background-image: -moz-linear-gradient(top, #412, #623);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#412), to(#623));
+  background-image: -webkit-linear-gradient(top, #412, #623);
+  background-image: -o-linear-gradient(top, #412, #623);
+  background-image: linear-gradient(to bottom, #412, #623);
+  background-repeat: repeat-x;
+  border-color: #252525;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff222222', endColorstr='#ff111111', GradientType=0);
+}
+.navbar-inverse .navbar-inner-red-transparent {
+  background-color: #1b1b1b;
+  background-image: -moz-linear-gradient(top, #512, #634);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#512), to(#634));
+  background-image: -webkit-linear-gradient(top, #512, #634);
+  background-image: -o-linear-gradient(top, #512, #634);
+  background-image: linear-gradient(to bottom, #812, #634);
+  background-repeat: repeat-x;
+  border-color: #252525;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff222222', endColorstr='#ff111111', GradientType=0);
+
+}
+
