@@ -15,4 +15,6 @@ MusicianWebsite::Application.routes.draw do
   get "static/resume"
 
   devise_for :users
+  #alternate easy-to-remember path for admin login:
+  devise_for :user, :path => '', :path_names => { :sign_in => "admin" }
 end
