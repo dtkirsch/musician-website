@@ -1,5 +1,8 @@
 MusicianWebsite::Application.routes.draw do
 
+  resources :pages
+
+
   root :to => 'static#home'
 
   get "static/home"

@@ -4,15 +4,23 @@
   <center><span><%= MusicianWebsite::Application::SITE_TAGLINE %></span></center> 
 <% end %>
 <ul class="nav">
-  <li><%= link_to 'Lessons', static_lessons_path %></li>
+<!--  <li><%= link_to 'Lessons', static_lessons_path %></li>
   <li><%= link_to 'Classes', static_classes_path %></li>
   <li><%= link_to 'Weddings', static_weddings_path %></li>
   <li><%= link_to 'Recommendations', static_testimonials_path %></li>
-  <li><%= link_to 'Resume', static_resume_path %></li>
+  <li><%= link_to 'Resume', static_resume_path %></li> -->
+
+  <% Page.where(:public => true, :link => true).each do |page| %>
+    <li><%= link_to page.name, page %></li>
+  <% end %>
   
   <% if user_signed_in? %>
     <li>
     <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
+    </li>
+  <% else %>
+    <li>
+    <%= link_to 'Login', new_user_session_path %>
     </li>
   <% end %>
 </ul>

@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<%= raw @page.content %>
+
+
+<% if can? :update, @page %>
+  <br/><br/>
+  <%= link_to 'Edit', edit_page_path(@page) %>
+<% end %>
+
