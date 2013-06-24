@@ -17,6 +17,13 @@
     <td><%= page.link %></td>
     <td><%= link_to 'Edit', edit_page_path(page) %></td>
     <td><%= link_to 'Delete', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+      <% if page.home? %>
+        HOME
+      <% elsif page.public? %>
+        <%= page.home ? "HOME" : (link_to "set as home", set_home_page_path(page)) %>
+      <% end %>
+    </td>
   </tr>
 <% end %>
 </table>

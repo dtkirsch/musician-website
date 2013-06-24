@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130624024517) do
+ActiveRecord::Schema.define(:version => 20130624114605) do
 
   create_table "pages", :force => true do |t|
     t.string   "name"
@@ -20,7 +20,11 @@ ActiveRecord::Schema.define(:version => 20130624024517) do
     t.boolean  "link"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "home"
   end
+
+  add_index "pages", ["home"], :name => "index_pages_on_home"
+  add_index "pages", ["name"], :name => "index_pages_on_name", :unique => true
 
   create_table "roles", :force => true do |t|
     t.string   "name"

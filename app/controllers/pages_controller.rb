@@ -1,16 +1,38 @@
 class PagesController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource :except => :home
 
-  # GET /pages
-  # GET /pages.json
-  def index
-    @pages = Page.all
+  # GET /pages/home
+  # GET /pages/home.json
+  def home
+    @page = Page.where(:home => true).first
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @pages }
+    if @page
+      respond_to do |format|
+        format.html { render "show"}
+        format.json { render json: @page }
+      end
+    else
+      redirect_to static_home_path if !@page
     end
   end
+
+  
+  # PUT /pages/set_home/1
+  # PUT /pages/1.json
+  def set_home
+    @page = Page.find(params[:id])
+    
+    respond_to do |format|
+      if @page.set_home
+        format.html { redirect_to :back, notice: 'Page was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to :back, notice: "Something went wrong, couldn't set new home." }
+        format.json { render json: @page.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 
   # GET /pages/1
   # GET /pages/1.json
@@ -39,7 +61,8 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
   end
 
-  # POST /pages
+
+
   # POST /pages.json
   def create
     @page = Page.new(params[:page])
