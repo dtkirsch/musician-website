@@ -1,7 +1,5 @@
 MusicianWebsite::Application.routes.draw do
 
-
-  match 'pages/:id', :to => "pages#show", :as => :page, :via => :get
   resources :pages do 
     member do
       get "set_home"
@@ -10,6 +8,7 @@ MusicianWebsite::Application.routes.draw do
       get "home"
     end
   end
+  match 'pages/:id', :to => "pages#show", :as => :page, :via => :get
 
   root :to => 'pages#home'
 
