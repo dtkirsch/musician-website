@@ -24,12 +24,12 @@ gem 'rolify'
 gem 'sendgrid'
 gem 'simple_form'
 group :assets do
-  gem 'less-rails'
   gem 'therubyracer', :platform=>:ruby, :require=>"v8"
-  gem 'twitter-bootstrap-rails'
 end
 group :development do
   gem 'hub', :require=>nil
 end
 
 gem 'paper_trail'
+gem 'twitter-bootstrap-rails'
+gem 'less-rails'
