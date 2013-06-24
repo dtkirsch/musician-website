@@ -1,5 +1,16 @@
 class PagesController < ApplicationController
-  load_and_authorize_resource :except => :home
+  authorize_resource :except => :home
+
+  # GET /pages
+  # GET /pages.json
+  def index
+    @pages = Page.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @pages }
+    end
+  end
 
   # GET /pages/home
   # GET /pages/home.json
@@ -20,7 +31,7 @@ class PagesController < ApplicationController
   # PUT /pages/set_home/1
   # PUT /pages/1.json
   def set_home
-    @page = Page.find(params[:id])
+    @page = Page.find_by_name(params[:id])
     
     respond_to do |format|
       if @page.set_home
@@ -37,7 +48,7 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
-    @page = Page.find(params[:id])
+    @page = Page.find_by_name(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -58,7 +69,7 @@ class PagesController < ApplicationController
 
   # GET /pages/1/edit
   def edit
-    @page = Page.find(params[:id])
+    @page = Page.find_by_name(params[:id])
   end
 
 
@@ -81,7 +92,7 @@ class PagesController < ApplicationController
   # PUT /pages/1
   # PUT /pages/1.json
   def update
-    @page = Page.find(params[:id])
+    @page = Page.find_by_name(params[:id])
 
     respond_to do |format|
       if @page.update_attributes(params[:page])

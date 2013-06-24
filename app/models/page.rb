@@ -2,6 +2,10 @@ class Page < ActiveRecord::Base
   has_paper_trail
   attr_accessible :content, :link, :name, :public
 
+  def to_param
+    self.name
+  end
+  
   def set_home
     ActiveRecord::Base.transaction do
       Page.where(:home => true).each do |page|
@@ -12,4 +16,6 @@ class Page < ActiveRecord::Base
       self.save!
     end
   end
+
+  
 end
