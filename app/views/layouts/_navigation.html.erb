@@ -23,4 +23,9 @@
     <%= link_to 'Login', new_user_session_path %>
     </li>
   <% end %>
+  
+
+  <% if can? :manage, Page %>
+    <li><%= link_to 'Manage', pages_path %></li>
+  <% end %>
 </ul>

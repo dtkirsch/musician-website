@@ -2,5 +2,15 @@
 
 <%= render 'form' %>
 
+<h4>Or revert to a previous version?</h4>
+<br/>
+<% @page.versions.sort_by{|v| v.created_at}.reverse.each do |version| %>
+  <%= version.created_at %> 
+  <%= link_to("Show", show_version_path(version), :method => :get) %> 
+  <%= link_to("Revert", revert_version_path(version), :method => :post) %><br/>
+<% end %>
+
+<br/>
+
 <%= link_to 'Show', @page %> |
 <%= link_to 'Back', pages_path %>

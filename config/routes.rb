@@ -20,4 +20,7 @@ MusicianWebsite::Application.routes.draw do
   devise_for :users
   #alternate easy-to-remember path for admin login:
   devise_for :user, :path => '', :path_names => { :sign_in => "admin" }
+
+  post "versions/:id/revert" => "versions#revert", :as => "revert_version"
+  get "versions/:id/show" => "versions#show", :as => "show_version"
 end

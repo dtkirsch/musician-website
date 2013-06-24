@@ -22,3 +22,5 @@ end
 group :development do
   gem 'hub', :require=>nil
 end
+
+gem 'paper_trail'
